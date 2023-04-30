@@ -1,35 +1,31 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// prop-types is a library for typechecking of props
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-
-// @mui material components
 import Icon from "@mui/material/Icon";
-
-// Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDButton from "components/MDButton";
-
-// Material Dashboard 2 React context
 import { useMaterialUIController } from "context";
+import { Typography } from "@mui/material";
 
-function Bill({ name, company, email, vat, noGutter }) {
+function QuestionCard({ noGutter }) {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
+  const [answer, setAnswer] = useState("");
+  const [clicked, setClicked] = useState(false);
+  const question = "Will CSK will today?";
+  const odds = 1;
+
+  const handleAnswerChange = (e) => {
+    setAnswer(e.target.value);
+  };
+
+  const handleButtonClick = (e) => {
+    setClicked(true);
+    if (answer !== "") {
+      // Handle button click logic here
+      console.log(e);
+    }
+  };
 
   return (
     <MDBox
@@ -51,60 +47,61 @@ function Bill({ name, company, email, vat, noGutter }) {
           flexDirection={{ xs: "column", sm: "row" }}
           mb={2}
         >
-          <MDTypography variant="button" fontWeight="medium" textTransform="capitalize">
-            {name}
+          <MDTypography variant="button" fontWeight="medium">
+            {question}
           </MDTypography>
-
-          <MDBox display="flex" alignItems="center" mt={{ xs: 2, sm: 0 }} ml={{ xs: -1.5, sm: 0 }}>
-            <MDBox mr={1}>
-              <MDButton variant="text" color="error">
-                <Icon>delete</Icon>&nbsp;delete
-              </MDButton>
-            </MDBox>
-            <MDButton variant="text" color={darkMode ? "white" : "dark"}>
-              <Icon>edit</Icon>&nbsp;edit
-            </MDButton>
-          </MDBox>
         </MDBox>
-        <MDBox mb={1} lineHeight={0}>
+        <MDBox mb={1}>
+          <MDTypography variant="h5" color="text">
+            Odds : 1
+          </MDTypography>
+        </MDBox>
+        <MDBox mb={1}>
           <MDTypography variant="caption" color="text">
-            Company Name:&nbsp;&nbsp;&nbsp;
-            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {company}
-            </MDTypography>
+            Points:
+          </MDTypography>
+          <input type="text" value={answer} onChange={handleAnswerChange} />
+          <MDTypography variant="caption" color="error">
+            {answer === "" && clicked ? "Please fill in the answer field." : ""}
           </MDTypography>
         </MDBox>
-        <MDBox mb={1} lineHeight={0}>
+        <MDBox mb={1}>
           <MDTypography variant="caption" color="text">
-            Email Address:&nbsp;&nbsp;&nbsp;
-            <MDTypography variant="caption" fontWeight="medium">
-              {email}
-            </MDTypography>
+            Points You ll get
           </MDTypography>
+          <Typography variant="h4">{answer * odds}</Typography>
         </MDBox>
-        <MDTypography variant="caption" color="text">
-          VAT Number:&nbsp;&nbsp;&nbsp;
-          <MDTypography variant="caption" fontWeight="medium">
-            {vat}
-          </MDTypography>
-        </MDTypography>
+      </MDBox>
+      <MDBox display="flex" alignItems="center" mt={{ xs: 2, sm: 0 }} ml={{ xs: -1.5, sm: 0 }}>
+        <MDBox mr={1}>
+          <MDButton
+            variant="text"
+            color={darkMode ? "white" : "error"}
+            onClick={handleButtonClick}
+            disabled={answer === ""}
+          >
+            <Icon>close</Icon>&nbsp;No
+          </MDButton>
+        </MDBox>
+        <MDButton
+          variant="text"
+          color={darkMode ? "white" : "success"}
+          onClick={handleButtonClick}
+          disabled={answer === ""}
+        >
+          <Icon>check</Icon>&nbsp;Yes
+        </MDButton>
       </MDBox>
     </MDBox>
   );
 }
 
-// Setting default values for the props of Bill
-Bill.defaultProps = {
+QuestionCard.defaultProps = {
   noGutter: false,
 };
 
-// Typechecking props for the Bill
-Bill.propTypes = {
-  name: PropTypes.string.isRequired,
-  company: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  vat: PropTypes.string.isRequired,
+QuestionCard.propTypes = {
   noGutter: PropTypes.bool,
 };
 
-export default Bill;
+export default QuestionCard;

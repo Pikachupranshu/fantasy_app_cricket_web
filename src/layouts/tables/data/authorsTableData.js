@@ -23,8 +23,6 @@ import MDBadge from "components/MDBadge";
 
 // Images
 import team2 from "assets/images/team-2.jpg";
-import team3 from "assets/images/team-3.jpg";
-import team4 from "assets/images/team-4.jpg";
 
 export default function data() {
   const Author = ({ image, name, email }) => (
@@ -39,136 +37,203 @@ export default function data() {
     </MDBox>
   );
 
-  const Job = ({ title, description }) => (
-    <MDBox lineHeight={1} textAlign="left">
-      <MDTypography display="block" variant="caption" color="text" fontWeight="medium">
-        {title}
-      </MDTypography>
-      <MDTypography variant="caption">{description}</MDTypography>
-    </MDBox>
-  );
-
   return {
     columns: [
-      { Header: "author", accessor: "author", width: "45%", align: "left" },
-      { Header: "function", accessor: "function", align: "left" },
-      { Header: "status", accessor: "status", align: "center" },
-      { Header: "employed", accessor: "employed", align: "center" },
-      { Header: "action", accessor: "action", align: "center" },
+      { Header: "player", accessor: "player", width: "45%", align: "left" },
+      { Header: "average points", accessor: "average points", align: "left" },
+      { Header: "points last match", accessor: "points last match", align: "center" },
+      { Header: "total points", accessor: "total points", align: "center" },
+      { Header: "rank", accessor: "rank", align: "center" },
     ],
 
     rows: [
       {
-        author: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
-        function: <Job title="Manager" description="Organization" />,
-        status: (
+        player: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
+        "average points": <div>1023</div>,
+        "points last match": (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
+            <MDBadge badgeContent="1300" color="success" variant="gradient" size="sm" />
           </MDBox>
         ),
-        employed: (
+        "total points": (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            23/04/18
+            32002
           </MDTypography>
         ),
-        action: (
+        rank: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
+            #1
           </MDTypography>
         ),
       },
       {
-        author: <Author image={team3} name="Alexa Liras" email="alexa@creative-tim.com" />,
-        function: <Job title="Programator" description="Developer" />,
-        status: (
+        player: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
+        "average points": <div>1023</div>,
+        "points last match": (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="offline" color="dark" variant="gradient" size="sm" />
+            <MDBadge badgeContent="1300" color="success" variant="gradient" size="sm" />
           </MDBox>
         ),
-        employed: (
+        "total points": (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            11/01/19
+            32002
           </MDTypography>
         ),
-        action: (
+        rank: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
+            #1
           </MDTypography>
         ),
       },
       {
-        author: <Author image={team4} name="Laurent Perrier" email="laurent@creative-tim.com" />,
-        function: <Job title="Executive" description="Projects" />,
-        status: (
+        player: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
+        "average points": <div>1023</div>,
+        "points last match": (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
+            <MDBadge badgeContent="1300" color="success" variant="gradient" size="sm" />
           </MDBox>
         ),
-        employed: (
+        "total points": (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            19/09/17
+            32002
           </MDTypography>
         ),
-        action: (
+        rank: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
+            #1
           </MDTypography>
         ),
       },
       {
-        author: <Author image={team3} name="Michael Levi" email="michael@creative-tim.com" />,
-        function: <Job title="Programator" description="Developer" />,
-        status: (
+        player: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
+        "average points": <div>1023</div>,
+        "points last match": (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
+            <MDBadge badgeContent="1300" color="success" variant="gradient" size="sm" />
           </MDBox>
         ),
-        employed: (
+        "total points": (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            24/12/08
+            32002
           </MDTypography>
         ),
-        action: (
+        rank: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
+            #1
           </MDTypography>
         ),
       },
       {
-        author: <Author image={team3} name="Richard Gran" email="richard@creative-tim.com" />,
-        function: <Job title="Manager" description="Executive" />,
-        status: (
+        player: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
+        "average points": <div>1023</div>,
+        "points last match": (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="offline" color="dark" variant="gradient" size="sm" />
+            <MDBadge badgeContent="1300" color="success" variant="gradient" size="sm" />
           </MDBox>
         ),
-        employed: (
+        "total points": (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            04/10/21
+            32002
           </MDTypography>
         ),
-        action: (
+        rank: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
+            #1
           </MDTypography>
         ),
       },
       {
-        author: <Author image={team4} name="Miriam Eric" email="miriam@creative-tim.com" />,
-        function: <Job title="Programator" description="Developer" />,
-        status: (
+        player: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
+        "average points": <div>1023</div>,
+        "points last match": (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="offline" color="dark" variant="gradient" size="sm" />
+            <MDBadge badgeContent="1300" color="success" variant="gradient" size="sm" />
           </MDBox>
         ),
-        employed: (
+        "total points": (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            14/09/20
+            32002
           </MDTypography>
         ),
-        action: (
+        rank: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
+            #1
+          </MDTypography>
+        ),
+      },
+      {
+        player: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
+        "average points": <div>1023</div>,
+        "points last match": (
+          <MDBox ml={-1}>
+            <MDBadge badgeContent="1300" color="success" variant="gradient" size="sm" />
+          </MDBox>
+        ),
+        "total points": (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            32002
+          </MDTypography>
+        ),
+        rank: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            #1
+          </MDTypography>
+        ),
+      },
+      {
+        player: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
+        "average points": <div>1023</div>,
+        "points last match": (
+          <MDBox ml={-1}>
+            <MDBadge badgeContent="1300" color="success" variant="gradient" size="sm" />
+          </MDBox>
+        ),
+        "total points": (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            32002
+          </MDTypography>
+        ),
+        rank: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            #1
+          </MDTypography>
+        ),
+      },
+      {
+        player: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
+        "average points": <div>1023</div>,
+        "points last match": (
+          <MDBox ml={-1}>
+            <MDBadge badgeContent="1300" color="success" variant="gradient" size="sm" />
+          </MDBox>
+        ),
+        "total points": (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            32002
+          </MDTypography>
+        ),
+        rank: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            #1
+          </MDTypography>
+        ),
+      },
+      {
+        player: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
+        "average points": <div>1023</div>,
+        "points last match": (
+          <MDBox ml={-1}>
+            <MDBadge badgeContent="1300" color="success" variant="gradient" size="sm" />
+          </MDBox>
+        ),
+        "total points": (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            32002
+          </MDTypography>
+        ),
+        rank: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            #1
           </MDTypography>
         ),
       },
